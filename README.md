@@ -1,4 +1,6 @@
-#C Library for Adafruit 8x8 LED Matrix via i2c
+#C Library - Adafruit 8x8 LED Matrix via i2c
+Simple library for education purposes with an raspberry pi and
+a LED matrix
 
 ##Usage
 ```c
