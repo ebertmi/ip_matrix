@@ -15,13 +15,13 @@
 #include <inttypes.h>
 #include <unistd.h>
 
-#include "ip_matrix.h"
+#include "ip_matrix8x8.h"
 
 /*  Writes the given command to the i2c.
  *  Returns -1 when failing to write the command
  *
  */
-void writeCommand (int fd, uint8_t command)
+int writeCommand (int fd, uint8_t command)
 {
     int result = i2c_smbus_write_byte(fd, command);
     if (result == -1)
@@ -32,11 +32,13 @@ void writeCommand (int fd, uint8_t command)
     return -1;
 }
 
-void writeByte (int fd, uint8_t command, uint8_t data ) {
+int writeByte (int fd, uint8_t command, uint8_t data ) {
     int result = i2c_smbus_write_byte_data(fd, command, data);
     if (result == -1) {
         printf("Failed to write byte to I2C.\n");
     }
+
+    return result;
 }
 
 /*
